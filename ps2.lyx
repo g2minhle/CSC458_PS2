@@ -3565,32 +3565,42 @@ Chapter 6
 
 \begin_deeper
 \begin_layout Standard
-Defeating TCP congestion-control mechanisms usually requires explicit cooperatio
-n of the sender.
- However,consider the receiving end of a large data transfer using a TCP
- modified to ACK packets that have not yet arrived.
- It may do this either because not all of the data is necessary or because
- data that is lost can be recovered in a separate transfer later.
- What effect does this receiver behavior have on the congestion control
- properties of the session? 
+The issue is that sender's window slide will keep increasing.
+ Hence the sender will flood the network
 \end_layout
 
 \begin_layout Standard
-Can you devise a way to modify TCP to avoid the possibility of senders being
- taken advantage of in this manner?
+The sender can have a maxium window size, so that the number of packets
+ in flight is capped at certain number.
+ Another solution is that the ACK packet must contain a nonce sent from
+ the sender to be valid.
 \end_layout
 
-\begin_layout Standard
-From the sender side, there must be a maxium number of packet 
-\end_layout
-
-\begin_layout Standard
-Sender window slide will keep increasing.
- and sender wkeep increasing the number of packet size, flood the network
-\end_layout
-
+\end_deeper
 \begin_layout Itemize
 27)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+From 
+\begin_inset Formula $T=0.5$
+\end_inset
+
+ to 
+\begin_inset Formula $T=1.9$
+\end_inset
+
+, the sliding window is blocking TCP, for initial timeout at 
+\begin_inset Formula $T=1.9$
+\end_inset
+
+ after the slow start
+\end_layout
+
+\begin_layout Standard
+Compared to Figure 6.11, the trace from Figure 6.28 and that of Figure 6.13
+ lack of a slow start after a time out 
 \end_layout
 
 \end_deeper
